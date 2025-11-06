@@ -3,12 +3,13 @@
 
 class contact
 {
-private:
-    char *f_name;
-    char *l_name;
-    char *nickname;
-    
-    
+	private:
+		std::string f_name;
+		std::string l_name;
+		std::string nickname;
+		std::string phone_number;
+		std::string darkest_secret;
+
 };
 
 
