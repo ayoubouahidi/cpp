@@ -1,7 +1,7 @@
 NAME = ex01
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
 SRCS = main.cpp Contact.cpp \
 
 OBJS = $(SRCS:%.c=%.o)
@@ -9,17 +9,17 @@ OBJS = $(SRCS:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-                $(CC) $(CFLAGS)  -o $(NAME) $(OBJS)
+	$(CC) $(CFLAGS)  -o $(NAME) $(OBJS)
 
 %.o: %.c
-                $(CC) $(CFLAGS)  -c $< -o $@
+	$(CC) $(CFLAGS)  -c $< -o $@
 
 
 clean:
-                rm -f $(OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-                rm -f $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 

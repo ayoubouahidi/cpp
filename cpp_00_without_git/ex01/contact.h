@@ -1,8 +1,13 @@
 #ifndef CONTACT_CLASS_H
 # define CONTACT_CLASS_H
 
-class contact
+#include <string>
+
+class Contact
 {
+	public:
+		// Contact();
+		Contact(const std::string &f_name, const std::string &l_name, const std::string &nickname, const std::string &phone, const std::string &darkest);
 	private:
 		std::string f_name;
 		std::string l_name;
@@ -10,9 +15,7 @@ class contact
 		std::string phone_number;
 		std::string darkest_secret;
 
+		// Contact(const std::string &f_name, const std::string &l_name, const std::string &nickname, const std::string &phone);
 };
-
-
-
 
 #endif
