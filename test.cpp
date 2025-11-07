@@ -1,30 +1,53 @@
 #include <iostream>
 
-using namespace std;
 
-float test_echo(int num)
+// **** test1 ***
+// using namespace std;
+
+// float test_echo(int num)
+// {
+//     if (num % 2 == 0)
+//         return true;
+//     return false;
+// }
+
+
+// test **** test2 ***
+#include "Test.h"
+
+Test::Test(const std::string &nom) : nom(nom)
 {
-    if (num % 2 == 0)
-        return true;
-    return false;
+}
+
+
+void Test::display()
+{
+	std::cout << "nom est :" << nom <<std::endl;
 }
 
 int main()
 {
+	// **** test1 ***
     // float result = test_echo(2);
     // cout << "the result is "<< result << endl;
-	int i;
+	// int i;
 
-	i = 0;
-	std::string input;
-	std::cout << "entrer quelque chose : " << std::flush;
-	std::getline(std::cin, input) ;
-	std::cout << input << std::endl;
+	// i = 0;
+	// std::string input;
+	// std::cout << "entrer quelque chose : " << std::flush;
+	// std::getline(std::cin, input) ;
+	// std::cout << input << std::endl;
 
 	// while (input[i])
 	// {
 	// 	i++;
 	// }
+
+	// test **** test2 ***
+	Test test("ayoub");
+	test.display();
+
+
 	
 
 

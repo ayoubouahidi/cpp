@@ -1,5 +1,5 @@
 #include <iostream>
-
+// namespace ab
 int	main(int ac, char **av)
 {
 	int i;
@@ -13,14 +13,15 @@ int	main(int ac, char **av)
 			i = 0;
 			while (av[j][i])
 			{
-				if (av[j][i] >= 97 && av[j][i] <= 122)
-				{
-					std::cout << char(av[j][i] - 32) << std::flush;
-				}
-				else
-				{
-					std::cout << char(av[j][i]) << std::flush;
-				}
+				// if (av[j][i] >= 97 && av[j][i] <= 122)
+				// {
+				// 	// std::cout << char(av[j][i] - 32) << std::flush;
+				// }
+				// else
+				// {
+				// 	// std::cout << char(av[j][i]) << std::flush;
+				// }
+
 				i++;
 			}
 			j++;
@@ -33,3 +34,5 @@ int	main(int ac, char **av)
 		av++;
 	}
 }
+
+// +namespace
