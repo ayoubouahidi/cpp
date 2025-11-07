@@ -12,6 +12,8 @@ class PhoneBook
 		PhoneBook(void);
 		bool is_full();
 		void add(Contact contact);
+		Contact search(int i);
+		// void display();
 
 };
 #endif

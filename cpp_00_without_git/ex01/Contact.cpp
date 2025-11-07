@@ -8,3 +8,13 @@ Contact::Contact(const std::string &f_name, const std::string &l_name, const std
 {
 }
 
+void Contact::display()
+{
+	std::cout << checkname(this->f_name) << "|" << checkname(this->l_name) << "|" << checkname(this->nickname) << std::endl;
+}
+std::string Contact::checkname(const std::string str)
+{
+	if (str.length() > 10)
+		return str.substr(0, 9) + ".";
+	return str;
+}
