@@ -2,7 +2,7 @@ NAME = ex01
 
 CC = c++
 CFLAGS = 
-SRCS = main.cpp Contact.cpp \
+SRCS = main.cpp Contact.cpp PhoneBook.cpp \
 
 OBJS = $(SRCS:%.c=%.o)
 

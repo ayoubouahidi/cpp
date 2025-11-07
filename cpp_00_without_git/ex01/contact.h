@@ -6,10 +6,10 @@
 class Contact
 {
 	public:
-		// Contact();
+		Contact();
 		Contact(const std::string &f_name, const std::string &l_name, const std::string &nickname, const std::string &phone, const std::string &darkest);
+		std::string f_name; 
 	private:
-		std::string f_name;
 		std::string l_name;
 		std::string nickname;
 		std::string phone_number;
