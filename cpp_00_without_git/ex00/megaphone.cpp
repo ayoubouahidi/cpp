@@ -13,22 +13,14 @@ int	main(int ac, char **av)
 			i = 0;
 			while (av[j][i])
 			{
-				// if (av[j][i] >= 97 && av[j][i] <= 122)
-				// {
-				// 	// std::cout << char(av[j][i] - 32) << std::flush;
-				// }
-				// else
-				// {
-				// 	// std::cout << char(av[j][i]) << std::flush;
-				// }
-
+				std::cout << char(std::toupper(av[j][i])) << std::flush; 
 				i++;
 			}
 			j++;
 		}
 		std::cout << "\n" << std::flush ;
 	}
-	else 
+	else
 	{
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl ;
 		av++;

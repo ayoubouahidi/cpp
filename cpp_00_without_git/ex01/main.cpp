@@ -43,28 +43,37 @@ int main()
 			{
 				std::cout << "entrer prenom : " << std::flush;
 				std::getline(std::cin, f_name_input);
+				if (!std::cin)
+					break;
 			} 
 			while(l_name_input.empty())
 			{
 				std::cout << "entrer nom : " << std::flush;
 				std::getline(std::cin, l_name_input);
+				if (!std::cin)
+					break;
 			}
 			while(nickname_input.empty())
 			{
 				std::cout << "entrer nickname : " << std::flush;
-				std::getline(std::cin, nickname_input);				
+				std::getline(std::cin, nickname_input);
+				if (!std::cin)
+					break;		
 			}
 			while(phone_number_input.empty())
 			{
 				std::cout << "entrer numero du tele : " << std::flush;
-				std::getline(std::cin, phone_number_input);				
+				std::getline(std::cin, phone_number_input);
+				if (!std::cin)
+					break;		
 			}
 			while(darkest_secret_input.empty())
 			{
 				std::cout << "entrer votre secret : " << std::flush;
-				std::getline(std::cin, darkest_secret_input);				
+				std::getline(std::cin, darkest_secret_input);
+				if (!std::cin)
+					break;		
 			}
-			
 			Contact contact(f_name_input, l_name_input, nickname_input, phone_number_input, darkest_secret_input);
 			phonebook.add(contact);
 		}
@@ -82,6 +91,8 @@ int main()
 			}
 			std::cout << "entrer un index " << std::flush;
 			std::getline(std::cin, index);
+			if (!std::cin)
+				break;
 			Contact result = phonebook.search(std::atoi(index.c_str()));
 			result.display(); 
 		}
