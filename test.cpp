@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <algorithm>
 
 // **** test1 ***
 // using namespace std;
@@ -44,11 +44,15 @@ int main()
 	// }
 
 	// test **** test2 ***
-	Test test("ayoub");
-	test.display();
+	// Test test("ayoub");
+	// test.display();
 
+	// test **** test3 ***
 
-	
+	std::string str;
+	getline(std::cin, str);
+	std::replace(str.begin(), str.end(), '\t', ' ');
+	std::cout << str << std::endl;
 
 
     return 0;

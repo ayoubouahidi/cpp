@@ -18,13 +18,10 @@ int	main(int ac, char **av)
 			}
 			j++;
 		}
-		std::cout << "\n" << std::flush ;
 	}
 	else
-	{
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl ;
-		av++;
-	}
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+	 std::cout << std::endl ;
 }
 
 // +namespace

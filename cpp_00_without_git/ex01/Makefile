@@ -1,19 +1,20 @@
-NAME = ex01
+NAME = PhoneBook
 
 CC = c++
-CFLAGS = 
-SRCS = main.cpp Contact.cpp PhoneBook.cpp \
 
-OBJS = $(SRCS:%.c=%.o)
+CFLAGS = 
+
+SRCS = main.cpp Contact.cpp PhoneBook.cpp
+
+OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(LIBFT)
-	$(CC) $(CFLAGS)  -o $(NAME) $(OBJS)
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS)  -c $< -o $@
-
 
 clean:
 	rm -f $(OBJS)

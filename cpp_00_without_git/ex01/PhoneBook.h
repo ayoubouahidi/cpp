@@ -7,12 +7,15 @@ class PhoneBook
 {
 	private:
 		int current_index;
+		bool is_full();
+		bool is_valid_input(std::string str);
 	public:
 		Contact array_contacts[8];
 		PhoneBook(void);
-		bool is_full();
+		Contact	input_check();
 		void add(Contact contact);
 		Contact search(int i);
+
 		// void display();
 
 };
