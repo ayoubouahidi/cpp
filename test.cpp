@@ -49,11 +49,13 @@ int main()
 
 	// test **** test3 ***
 
-	std::string str;
-	getline(std::cin, str);
-	std::replace(str.begin(), str.end(), '\t', ' ');
-	std::cout << str << std::endl;
-
-
+	// std::string str;
+	// getline(std::cin, str);
+	// std::replace(str.begin(), str.end(), '\t', ' ');
+	// std::cout << str << std::endl;
+	// test **** test4 ***
+	std::string str = "      ayoub ouahidi   ";
+	size_t found = str.find_last_not_of(' ');
+	std::cout << str.substr(0, found + 1);
     return 0;
 }

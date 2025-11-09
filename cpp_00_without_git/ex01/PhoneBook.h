@@ -9,6 +9,7 @@ class PhoneBook
 		int current_index;
 		bool is_full();
 		bool is_valid_input(std::string str);
+		std::string input_without_spaces(std::string str);
 	public:
 		Contact array_contacts[8];
 		PhoneBook(void);

@@ -18,8 +18,8 @@ bool PhoneBook::is_valid_input(std::string str)
 
 	if (str.empty())
 		return false;
+	
 	i = 0;
-	std::replace(str.begin(), str.end(), '\t', ' ');
 	while (str[i])
 	{
 		if (str[i] < 32 || str[i] > 126)
@@ -27,6 +27,13 @@ bool PhoneBook::is_valid_input(std::string str)
 		i++;
 	}
 	return true;
+}
+
+std::string PhoneBook::input_without_spaces(std::string str)
+{
+	std::replace(str.begin(), str.end(), '\t', ' ');
+	size_t found =  str.find_last_not_of(' ');
+	return str.substr(0 , found + 1);
 }
 
 
@@ -37,7 +44,7 @@ Contact	PhoneBook::input_check()
 	std::string nickname_input;
 	std::string phone_number_input;
 	std::string darkest_secret_input;
-	std::cout << "**** TEST ****" << std::endl;
+
 	while(!is_valid_input(f_name_input))
 	{
 		std::cout << "entrer prenom : " << std::flush;
@@ -73,7 +80,7 @@ Contact	PhoneBook::input_check()
 		if (!std::cin)
 			break;	
 	}
-	Contact contact(f_name_input, l_name_input, nickname_input, phone_number_input, darkest_secret_input);
+	Contact contact(input_without_spaces(f_name_input), input_without_spaces(l_name_input), input_without_spaces(nickname_input), input_without_spaces(phone_number_input), input_without_spaces(darkest_secret_input));
 	return contact;
 }
 
