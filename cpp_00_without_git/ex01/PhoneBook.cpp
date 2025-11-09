@@ -12,6 +12,20 @@ bool PhoneBook::is_full()
 {
 	return current_index >= 8;
 }
+bool PhoneBook::iswhitespaces(std::string str)
+{
+	size_t i;
+
+	i = 0;
+	while (i < str.length())
+	{
+		if (str[i] != ' ')
+			return false;
+		i++;
+	}
+	return true;
+}
+
 bool PhoneBook::is_valid_input(std::string str)
 {
 	int i;
@@ -26,6 +40,12 @@ bool PhoneBook::is_valid_input(std::string str)
 			return false;
 		i++;
 	}
+	if (PhoneBook::iswhitespaces(str))
+	{
+		
+		std::cout << "***  entrer a valid input ***" << std::endl;
+		return false;
+	}
 	return true;
 }
 
@@ -34,6 +54,26 @@ std::string PhoneBook::input_without_spaces(std::string str)
 	std::replace(str.begin(), str.end(), '\t', ' ');
 	size_t found =  str.find_last_not_of(' ');
 	return str.substr(0 , found + 1);
+}
+
+bool PhoneBook::is_valid_input_number(std::string str)
+{
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (!std::isdigit(str[i]))
+		{
+			std::cout << "***  entrer a valid input ***" << std::endl;
+			return false;
+		}
+		i++;
+	}
+	if (is_valid_input(str))
+		return true;
+	else
+		return false;
 }
 
 
@@ -66,7 +106,7 @@ Contact	PhoneBook::input_check()
 		if (!std::cin)
 			break;	
 	}
-	while(!is_valid_input(phone_number_input))
+	while(!is_valid_input_number(phone_number_input))
 	{
 		std::cout << "entrer numero du tele : " << std::flush;
 		std::getline(std::cin, phone_number_input);
@@ -102,7 +142,7 @@ Contact PhoneBook::search(int index)
 	while (i < 8)
 	{
 		if (i + 1 == index)
-			return (array_contacts[i]);
+			return (PhoneBook::array_contacts[i]);
 		i++;
 	}
 	std::cout << "NOT FOUND" << std::endl;

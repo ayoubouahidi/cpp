@@ -39,15 +39,23 @@ int main()
 		if (std::strcmp(to_upper(operation).c_str(), "SEARCH") == 0)
 		{
 			i = 0;
+			std::cout << "_____________________________________________" << std::endl;
+			std::cout << "| " << "    index";
+    		std::cout << "| " << "      nom" ;
+			std::cout << "| " << "   prenom" ;
+    		std::cout << "| " << " nickname" << "| " << std::endl;
+			std::cout << "|__________|__________|__________|__________|" << std::endl;
 			while (i < 8)
 			{
 				if (phonebook.array_contacts[i].getLname().empty())
 					break;
+
 				std::cout <<phonebook.array_contacts[i].checkname(std::to_string(i)) << std::flush;
 				std::cout << "|" << std::flush;
 				phonebook.array_contacts[i].display();
 				i++;
 			}
+			std::cout << "_____________________________________________" << std::endl;
 			std::cout << "entrer un index " << std::flush;
 			std::getline(std::cin, index);
 			if (!std::cin)
