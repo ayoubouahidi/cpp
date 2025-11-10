@@ -59,11 +59,10 @@ int main()
 				std::cout << "entrer un index " << std::flush;
 				std::getline(std::cin, index);
 				if (!std::cin)
-					break; 
+					break;
 				Contact result = phonebook.search(std::atoi(index.c_str()));
 				if (!result.getLname().empty())
 					result.display_all();
-
 			}
 		}
 		if (std::strcmp(to_upper(operation).c_str(), "EXIT") == 0)

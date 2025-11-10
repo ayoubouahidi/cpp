@@ -10,7 +10,7 @@ PhoneBook::PhoneBook(void)
 
 bool PhoneBook::is_full()
 {
-	return current_index >= 7;
+	return current_index >= 8;
 }
 bool PhoneBook::iswhitespaces(std::string str)
 {
