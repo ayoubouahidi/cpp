@@ -1,6 +1,6 @@
 #include <iostream>
 #include "PhoneBook.h"
-#include "contact.h"
+#include "Contact.h"
 #include <algorithm>
 
 PhoneBook::PhoneBook(void)
@@ -10,7 +10,7 @@ PhoneBook::PhoneBook(void)
 
 bool PhoneBook::is_full()
 {
-	return current_index >= 8;
+	return current_index >= 7;
 }
 bool PhoneBook::iswhitespaces(std::string str)
 {
@@ -128,24 +128,23 @@ void	PhoneBook::add(Contact contact)
 {
 	if (is_full())
 		current_index = 0;
+	std::cout << current_index << std::endl;
 	PhoneBook::array_contacts[current_index] = contact;
 	if (current_index < 8)
 		current_index++;
 }
+
 Contact PhoneBook::search(int index)
 {
-	int i;
-
-	i = 0;
-	if (index > 8 || index <= 0)
-		std::cout << "NOT FOUND" << std::endl;
-	while (i < 8)
+	if (index >= 8 || index < 0)
 	{
-		if (i + 1 == index)
-			return (PhoneBook::array_contacts[i]);
-		i++;
-	}
-	std::cout << "NOT FOUND" << std::endl;
-	return Contact();
-	
+		std::cout << "NOT FOUND" << std::endl;
+		return Contact();
+    }
+	if (PhoneBook::array_contacts[index].getName().empty())
+	{
+		std::cout << "NOT FOUND" << std::endl;
+		return Contact();
+    }	
+    return PhoneBook::array_contacts[index];
 }

@@ -1,19 +1,20 @@
 #ifndef PHONEBOOK_CLASS_H
 # define PHONEBOOK_CLASS_H
 
-#include "contact.h"
+#include "Contact.h"
 
 class PhoneBook
 {
 	private:
 		int current_index;
 		bool is_full();
-		bool is_valid_input(std::string str);
 		std::string input_without_spaces(std::string str);
 		bool iswhitespaces(std::string str);
-		bool is_valid_input_number(std::string str);
+		
 	public:
 		Contact array_contacts[8];
+		bool is_valid_input(std::string str);
+		bool is_valid_input_number(std::string str);
 		PhoneBook(void);
 		Contact	input_check();
 		void add(Contact contact);

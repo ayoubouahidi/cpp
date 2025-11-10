@@ -8,20 +8,12 @@ class Contact
 	public:
 		Contact();
 		Contact(const std::string &f_name, const std::string &l_name, const std::string &nickname, const std::string &phone, const std::string &darkest);
-		std::string getName() const
-		{
-			return f_name;
-		}
-		std::string getLname() const 
-		{
-			return l_name;
-		}
-		std::string getNickname() const
-		{
-			return nickname;
-		}
+		std::string getName() const;
+		std::string getLname() const ;
+		std::string getNickname() const;
 		void display();
 		std::string checkname(const std::string str);
+		void	display_all();
 		
 	private:
 		std::string f_name; 
