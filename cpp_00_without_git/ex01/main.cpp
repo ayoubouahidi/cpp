@@ -54,15 +54,22 @@ int main()
 				i++;
 			}
 			std::cout << "_____________________________________________" << std::endl;
-			while (!phonebook.is_valid_input_number(index))
+			while (1)
 			{
 				std::cout << "entrer un index " << std::flush;
 				std::getline(std::cin, index);
 				if (!std::cin)
 					break;
-				Contact result = phonebook.search(std::atoi(index.c_str()));
+				if (!phonebook.is_valid_input_number(index))
+				{
+					std::cout << "Index invalide. Veuillez entrer un nombre valide." << std::endl;
+					continue;
+				}
+				int idx = std::atoi(index.c_str());
+				Contact result = phonebook.search(idx);
 				if (!result.getLname().empty())
 					result.display_all();
+				break;
 			}
 		}
 		if (std::strcmp(to_upper(operation).c_str(), "EXIT") == 0)
