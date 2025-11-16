@@ -1,7 +1,7 @@
 NAME = ex00
 
 CC = c++
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 SRCS = megaphone.cpp \
 
 OBJS = $(SRCS:%.cpp=%.o)
@@ -11,7 +11,7 @@ all: $(NAME)
 $(NAME): $(OBJS) $(LIBFT)
 		$(CC) $(CFLAGS)  -o $(NAME) $(OBJS) 
 
-%.o: %.c
+%.o: %.cpp
 		$(CC) $(CFLAGS)  -c $< -o $@
 
 
