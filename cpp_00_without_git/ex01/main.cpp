@@ -3,6 +3,7 @@
 #include <cstring>
 #include "PhoneBook.h"
 #include <iomanip>
+#include <sstream>
 
 std::string to_upper(std::string av)
 {
@@ -17,6 +18,12 @@ std::string to_upper(std::string av)
 		i++;
 	}
 	return av;
+}
+
+std::string intToString(int num) {
+    std::stringstream ss;
+    ss << num;
+    return ss.str();
 }
 
 int main()
@@ -49,7 +56,7 @@ int main()
 			{
 				if (phonebook.array_contacts[i].getLname().empty())
 					break;
-				std::cout << std::setw(10) << phonebook.array_contacts[i].checkname(std::to_string(i)) << std::flush;
+				std::cout << std::setw(10) << phonebook.array_contacts[i].checkname(intToString(i)) << std::flush;
 				phonebook.array_contacts[i].display();
 				i++;
 			}
@@ -65,8 +72,18 @@ int main()
 					std::cout << "Index invalide. Veuillez entrer un nombre valide." << std::endl;
 					continue;
 				}
-				int idx = std::atoi(index.c_str());
-				Contact result = phonebook.search(idx);
+
+				int numb;
+				std::stringstream strr;
+				strr << index;
+				strr >> numb;
+				// if(str.fail())
+
+
+
+
+				// int idx = std::atoi(index.c_str());
+				Contact result = phonebook.search(numb);
 				if (!result.getLname().empty())
 					result.display_all();
 				break;

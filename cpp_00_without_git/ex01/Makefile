@@ -2,7 +2,7 @@ NAME = PhoneBook
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp Contact.cpp PhoneBook.cpp
 
@@ -13,7 +13,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS)  -c $< -o $@
 
 clean:
