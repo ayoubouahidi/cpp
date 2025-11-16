@@ -25,6 +25,14 @@ void Test::display()
 	std::cout << "nom est :" << nom <<std::endl;
 }
 
+void myFunction() {
+  // Local variable that belongs to myFunction
+  int x = 5;
+}
+namespace first
+{
+	int x = 0;
+}
 int main()
 {
 	// **** test1 ***
@@ -54,8 +62,16 @@ int main()
 	// std::replace(str.begin(), str.end(), '\t', ' ');
 	// std::cout << str << std::endl;
 	// test **** test4 ***
-	std::string str = "      ayoub ouahidi   ";
-	size_t found = str.find_last_not_of(' ');
-	std::cout << str.substr(0, found + 1);
-    return 0;
+// 	std::string str = "      ayoub ouahidi   ";
+// 	size_t found = str.find_last_not_of(' ');
+// 	std::cout << str.substr(0, found + 1);
+//     return 0;
+
+// test **** test 5 ***
+	using namespace first;
+	// // int x = 1;
+	// myFunction();
+	std::cout << x ;
+
+
 }
