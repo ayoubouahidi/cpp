@@ -68,10 +68,27 @@ int main()
 //     return 0;
 
 // test **** test 5 ***
-	using namespace first;
-	// // int x = 1;
-	// myFunction();
-	std::cout << x ;
+	// using namespace first;
+	// // // int x = 1;
+	// // myFunction();
+	// std::cout << x ;
 
+// ******************************************* les testes cpp01 *******************************************
+
+
+// test **** test 6 ***
+	int *p = NULL;
+	p = new int;
+	*p = 17;
+
+	std::string freePizza[5] = {"ayoubouahidi1", "ayoubouahidi2", "ayoubouahidi2", "ayoubouahidi2" , "ayoubouahidi5"};
+	std::string *pFreePizza ;
+	pFreePizza = freePizza; 
+
+	std::cout << "l'adress est :" << p << std::endl;
+	std::cout << "valeur est :" << *p << std::endl;
+	
+	std::cout << "array example (adress) :" << pFreePizza << std::endl;
+	std::cout << "array example (value) :" << *++pFreePizza << std::endl;
 
 }
