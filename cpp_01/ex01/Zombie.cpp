@@ -5,7 +5,8 @@
 Zombie::Zombie():name()
 {}
 
-Zombie::~Zombie(){
+Zombie::~Zombie()
+{
 	std::cout << "name of zombie destroyed : " << this->name << std::endl;
 };
 

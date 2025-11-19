@@ -10,7 +10,7 @@ Zombie* newZombie(std::string name)
 	return zombie;
 }
 
-void randomChump( std::string name )
+void randomChump(std::string name)
 {
 	Zombie zombie;
 	zombie.setName(name);
