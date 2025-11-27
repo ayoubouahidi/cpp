@@ -4,22 +4,26 @@
 
 Zombie* zombieHorde(int N, std::string name)
 {
-	Zombie *zombie = new Zombie[N];
+	Zombie* zombies = new Zombie[N];
+    int i = 0;
 
-	int i = 0;
-	while(i < N)
-	{
-		zombie[i].setName(name);
-		i++;
-	}
-	return zombie;
+    while (i < N)
+    {
+        zombies[i].setName(name);
+        i++;
+    }
+    return zombies;
 }
 
 int main()
 {
-	
-	Zombie* zombie = zombieHorde(3, "ayoub");
-	std::cout << zombie[2].getName() << std::endl;
-	delete[] zombie;
+    Zombie* zombies = zombieHorde(3, "ayoub");
+    int i = 0;
 
+    while (i < 3)
+    {
+        std::cout << zombies[i].getName() << std::endl;
+        i++;
+    }
+    delete[] zombies;
 }

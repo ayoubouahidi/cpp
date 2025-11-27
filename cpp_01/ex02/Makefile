@@ -1,10 +1,10 @@
-NAME = HorderZombie
+NAME = brain
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp Zombie.cpp
+SRCS = main.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
