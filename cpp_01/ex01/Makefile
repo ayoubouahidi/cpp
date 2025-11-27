@@ -4,7 +4,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp 
+SRCS = main.cpp Zombie.cpp
 
 OBJS = $(SRCS:%.cpp=%.o)
 
