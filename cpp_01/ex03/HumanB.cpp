@@ -3,10 +3,10 @@
 #include "Weapon.h"
 
 
-HumanB::HumanB(std::string& name, Weapon* weapon)
-    : name(name), weapon(weapon){}
+HumanB::HumanB(const std::string& name)
+    : name(name){}
 
-void HumanB::setWeapon(Weapon& newWeapon) {
+void HumanB::setWeapon(Weapon &newWeapon) {
         weapon = &newWeapon;
 }
 
