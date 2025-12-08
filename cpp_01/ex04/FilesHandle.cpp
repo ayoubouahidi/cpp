@@ -66,15 +66,3 @@ bool FilesHandle::create_new_file(std::string text)
 	outFile.close();
 	return true;
 }
-
-// std::string FilesHandle::new_text(std::string *text, std::string *str1,
-	// std::string *str2)
-// {
-// 	int i = 0;
-
-// 	while (text)
-// 	{
-// 		find_occr(text, str1, str2);
-// 		i++;
-// 	}
-// }
