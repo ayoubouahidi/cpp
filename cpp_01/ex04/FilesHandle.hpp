@@ -2,6 +2,9 @@
 #include <fstream>
 #include <string>
 
+#ifndef FILES_HANDEL_HPP
+# define FILES_HANDEL_HPP
+
 class FilesHandle 
 {
 	private:
@@ -17,3 +20,5 @@ class FilesHandle
 		bool create_new_file(std::string text);
 	
 };
+
+#endif
