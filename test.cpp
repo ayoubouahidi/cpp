@@ -15,24 +15,24 @@
 // test **** test2 ***
 #include "Test.h"
 
-Test::Test(const std::string &nom) : nom(nom)
-{
-}
+// Test::Test(const std::string &nom) : nom(nom)
+// {
+// }
 
 
-void Test::display()
-{
-	std::cout << "nom est :" << nom <<std::endl;
-}
+// void Test::display()
+// {
+// 	std::cout << "nom est :" << nom <<std::endl;
+// }
 
-void myFunction() {
-  // Local variable that belongs to myFunction
-  int x = 5;
-}
-namespace first
-{
-	int x = 0;
-}
+// void myFunction() {
+//   // Local variable that belongs to myFunction
+//   int x = 5;
+// }
+// namespace first
+// {
+// 	int x = 0;
+// }
 int main()
 {
 	// **** test1 ***
@@ -77,18 +77,27 @@ int main()
 
 
 // test **** test 6 ***
-	int *p = NULL;
-	p = new int;
-	*p = 17;
+	// int *p = NULL;
+	// p = new int;
+	// *p = 17;
 
-	std::string freePizza[5] = {"ayoubouahidi1", "ayoubouahidi2", "ayoubouahidi2", "ayoubouahidi2" , "ayoubouahidi5"};
-	std::string *pFreePizza ;
-	pFreePizza = freePizza; 
+	// std::string freePizza[5] = {"ayoubouahidi1", "ayoubouahidi2", "ayoubouahidi2", "ayoubouahidi2" , "ayoubouahidi5"};
+	// std::string *pFreePizza ;
+	// pFreePizza = freePizza; 
 
-	std::cout << "l'adress est :" << p << std::endl;
-	std::cout << "valeur est :" << *p << std::endl;
+	// std::cout << "l'adress est :" << p << std::endl;
+	// std::cout << "valeur est :" << *p << std::endl;
 	
-	std::cout << "array example (adress) :" << pFreePizza << std::endl;
-	std::cout << "array example (value) :" << *++pFreePizza << std::endl;
+	// std::cout << "array example (adress) :" << pFreePizza << std::endl;
+	// std::cout << "array example (value) :" << *++pFreePizza << std::endl;
+
+// test to pointer function 
+
+	Calculator cal;
+
+	int (Calculator::*oper)(int, int);
+	oper = &Calculator::add;
+	int result = (cal.*oper)(10,10);
+	std::cout << result << std::endl;
 
 }

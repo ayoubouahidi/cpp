@@ -15,12 +15,30 @@ void Harl::warning()
     std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month." << std::endl;
 }
 
-void Harl::info()
+void Harl::error()
 {
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl; 
 }
 
 void Harl::complaine(std::string level)
 {
+    void (Harl::*pointer_to_member_function[4])() = {
+        &Harl::debug,
+        &Harl::info,
+        &Harl::warning,
+        &Harl::error
+    };
+    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+
+    int i = 0;
+    while (i < 4)
+    {
+        if (level == levels[i] )
+        {
+            (this->*pointer_to_member_function[i])();
+            return ;
+        }
+        i++;
+    }
     
 }

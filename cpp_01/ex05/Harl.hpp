@@ -8,7 +8,7 @@ class Harl
         void    debug();
         void    error();
 public:
-    Harl(/* args */);
+    // Harl(/* args */);
     void    complaine( std::string level);
    
 };
