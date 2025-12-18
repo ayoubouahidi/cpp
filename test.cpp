@@ -93,11 +93,19 @@ int main()
 
 // test to pointer function 
 
-	Calculator cal;
+	// Calculator cal;
 
-	int (Calculator::*oper)(int, int);
-	oper = &Calculator::add;
-	int result = (cal.*oper)(10,10);
-	std::cout << result << std::endl;
+	// int (Calculator::*oper)(int, int);
+	// oper = &Calculator::add;
+	// int result = (cal.*oper)(10,10);
+	// std::cout << result << std::endl;
 
+
+	// THIS IS AYOUB , THIS IS A TEST THAT I WILL MAKE FOR A REVESION OF CPP 01 CORRECTION . :) 
+	int *a ;
+	*a = 1;
+	
+	int  &ref_a = *a;
+	std::cout << a << std::endl;
+	std::cout << &ref_a << std::endl;
 }

@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	text = filesHandle.new_text();
 	if (filesHandle.stopProgramme)
 		return 1;
-	std::cout << text << std::endl;
+	// std::cout << text << std::endl;
 	is_opened = filesHandle.create_new_file(text);
 	if (filesHandle.stopProgramme)
 		return 1;	
