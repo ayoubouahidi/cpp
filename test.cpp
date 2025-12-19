@@ -102,10 +102,17 @@ int main()
 
 
 	// THIS IS AYOUB , THIS IS A TEST THAT I WILL MAKE FOR A REVESION OF CPP 01 CORRECTION . :) 
-	int *a ;
-	*a = 1;
+// 	int *a ;
+// 	*a = 1;
 	
-	int  &ref_a = *a;
-	std::cout << a << std::endl;
-	std::cout << &ref_a << std::endl;
+// 	int  &ref_a = *a;
+// 	std::cout << a << std::endl;
+// 	std::cout << &ref_a << std::endl;
+
+//  ********************************* CPP _ 02  *********************************
+
+	Test t1("ayoub");
+	Test t2("test");
+	t1 = t2;
+	t1.display();
 }

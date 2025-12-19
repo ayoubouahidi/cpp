@@ -3,31 +3,53 @@
 
 #include <string>
 
-// class Test
-// {
-// private:
-// 	std::string nom;
-// public:
-// 	// Test(void);
-// 	Test(const std::string &nom);
-// 	void display(void);
-	
-// };
 
-class Calculator {
+// cpp 02's test
+class Test
+{
+private:
+	std::string nom;
+
 public:
-    int add(int a, int b) {
-        return a + b;
+	// Test(void);
+	Test(const std::string &nom) : nom(nom)
+    {
+        std::cout << "constructeur declaration " << std::endl;
+    };
+
+    ~Test()
+    {
+        std::cout << "desconstucteur" << std::endl;
     }
-    
-    int subtract(int a, int b) {
-        return a - b;
-    }
-    
-    int multiply(int a, int b) {
-        return a * b;
+
+	void display(void)
+    {
+        std::cout << "name is <" << nom << ">"<< std::endl;
+    };
+
+	Test& operator=(const Test& other )
+    {
+		if (this == &other)
+			return *this;
+		nom = other.nom;
+		return *this;
     }
 };
+
+// class Calculator {
+// public:
+//     int add(int a, int b) {
+//         return a + b;
+//     }
+    
+//     int subtract(int a, int b) {
+//         return a - b;
+//     }
+    
+//     int multiply(int a, int b) {
+//         return a * b;
+//     }
+// };
 
 
 #endif
