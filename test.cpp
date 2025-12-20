@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
+#include <cmath>
 // **** test1 ***
 // using namespace std;
 
@@ -111,8 +111,11 @@ int main()
 
 //  ********************************* CPP _ 02  *********************************
 
-	Test t1("ayoub");
-	Test t2("test");
-	t1 = t2;
-	t1.display();
+	// Test t1("ayoub");
+	// Test t2("test");
+	// t1 = t2;
+	// t1.display();
+
+	float i = 17.0;
+	std::cout << std::roundf(i) << std::endl;
 }

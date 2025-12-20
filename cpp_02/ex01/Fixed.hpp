@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -8,7 +9,11 @@ class Fixed
     
     public:
         Fixed();
+        Fixed(const int fixed_point);
+        Fixed(const float fixed_point);
         Fixed(Fixed& other);
+        int   toInt( void ) const;
+        float toFloat( void ) const;
         Fixed& operator=(const Fixed& other);
         ~Fixed();
         int getRawBits(void);

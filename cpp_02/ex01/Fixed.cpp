@@ -9,6 +9,33 @@ Fixed::Fixed()
 }
 
 
+Fixed::Fixed(const int fixed_point): fixed_point(fixed_point)
+{
+    std::cout << "Int constructor called" << std::endl;
+    this->fixed_point = fixed_point * (1 << fraction);
+}
+
+float operator<< ()
+{
+
+}
+
+Fixed::Fixed(const float fixed_point): fixed_point(fixed_point)
+{
+    std::cout << "Float constructor called" << std::endl;
+    this->fixed_point = roundf(fixed_point * (1 << fraction));
+}
+
+int   Fixed::toInt( void ) const
+{
+    return  this->fixed_point >> fraction;
+}
+
+
+float Fixed::toFloat( void ) const
+{
+    return (float)this->fixed_point / (1 << fraction);
+}
 
 Fixed::Fixed(Fixed& other) : fixed_point(other.fixed_point)
 {
@@ -32,7 +59,6 @@ Fixed::~Fixed()
 int Fixed::getRawBits()
 {
     std::cout << "getRawBits member function called" << std::endl;
-    // return fixed_point * 2 ^ fraction;
     return fixed_point;
 }
 
