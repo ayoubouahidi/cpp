@@ -1,10 +1,10 @@
-NAME = 
+NAME = Fixed_number
 
 CC = c++
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.cpp 
+SRCS = main.cpp Fixed.cpp 
 
 OBJS = $(SRCS:%.cpp=%.o)
 

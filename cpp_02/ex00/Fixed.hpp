@@ -7,6 +7,7 @@ class Fixed
         static const int fraction = 8;
     
     public:
+        Fixed();
         Fixed(int fixed_point);
         Fixed(Fixed& other);
         Fixed& operator=(const Fixed& other);
