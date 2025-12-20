@@ -15,9 +15,10 @@ Fixed::Fixed(const int fixed_point): fixed_point(fixed_point)
     this->fixed_point = fixed_point * (1 << fraction);
 }
 
-float operator<< ()
+std::ostream &operator<<(std::ostream &out, const Fixed &fixed)
 {
-
+    out << fixed.toFloat();
+    return out;
 }
 
 Fixed::Fixed(const float fixed_point): fixed_point(fixed_point)
