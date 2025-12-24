@@ -10,7 +10,7 @@ Fixed::Fixed()
 
 
 
-Fixed::Fixed(Fixed& other) : fixed_point(other.fixed_point)
+Fixed::Fixed(const Fixed& other) : fixed_point(other.fixed_point)
 {
     std::cout << "Copy constructor called" << std::endl;
 }
@@ -29,10 +29,9 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-int Fixed::getRawBits()
+int Fixed::getRawBits() const
 {
     std::cout << "getRawBits member function called" << std::endl;
-    // return fixed_point * 2 ^ fraction;
     return fixed_point;
 }
 

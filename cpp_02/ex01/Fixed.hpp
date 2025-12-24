@@ -11,12 +11,12 @@ class Fixed
         Fixed();
         Fixed(const int fixed_point);
         Fixed(const float fixed_point);
-        Fixed(Fixed& other);
+        Fixed(const Fixed& other);
         int   toInt( void ) const;
         float toFloat( void ) const;
         Fixed& operator=(const Fixed& other);
         ~Fixed();
-        int getRawBits(void);
+        int getRawBits(void) const;
         void setRawBits(int const raw );
 };
 
