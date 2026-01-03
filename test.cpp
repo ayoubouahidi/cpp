@@ -33,6 +33,27 @@
 // {
 // 	int x = 0;
 // }
+
+Personne::Personne(std::string nom, int age):nom(nom) , age(age)
+{
+	std::cout << "constructeur called Personne" <<std::endl;
+}
+
+void Personne::show()
+{
+	std::cout << "nom est :" << nom  << "age est " << age <<std::endl;
+}
+
+Student::Student(std::string nom, int age, std::string classe):Personne(nom, age), classe(classe)
+{
+	std::cout << "constructeur called Student " <<std::endl;
+}
+void Student::show()
+{
+	Personne::show();
+	std::cout << "classe student show is " << this->classe << std::endl;
+}
+
 int main()
 {
 	// **** test1 ***
@@ -116,6 +137,14 @@ int main()
 	// t1 = t2;
 	// t1.display();
 
-	float i = 17.0;
-	std::cout << std::roundf(i) << std::endl;
+	// float i = 17.0;
+	// std::cout << std::roundf(i) << std::endl;
+
+//  ********************************* CPP _ 03  *********************************
+
+	Personne p1("ayoub", 23);
+	Student s1("ayoub", 23, "cla1");
+	s1.show();
+	Personne s2 = Student("ouahidi", 20, "clas2");
+	s2.show();
 }
