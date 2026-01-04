@@ -2,7 +2,7 @@
 
 ClapTrap::ClapTrap():name("") , points(10), Energy_points(10), Attack_damage(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called ClapTrap" << std::endl;
 }
 
 ClapTrap::ClapTrap(const std::string name):name(name) , points(10), Energy_points(10), Attack_damage(0)
@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(const std::string name):name(name) , points(10), Energy_point
 
 ClapTrap::ClapTrap(const ClapTrap& other):name(other.name) , points(other.points), Energy_points(other.Energy_points), Attack_damage(other.Attack_damage)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called ClapTrap" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator= (const ClapTrap& other)
@@ -23,24 +23,31 @@ ClapTrap& ClapTrap::operator= (const ClapTrap& other)
     this->points = other.points;
     this->Energy_points = other.Energy_points;
     this->Attack_damage = other.Attack_damage;
-    std::cout << "Copy assignment operator called" << std::endl;
+    std::cout << "Copy assignment operator called ClapTrap" << std::endl;
     return *this;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor called ClapTrap" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
 {
-    if (this->Energy_points > 0 && this->points > 0)
+    if (this->points <= 0)
     {
-        std::cout << "ClapTrap " << this->name << " attacks " << target << ", causing " << this->Attack_damage << " points of damage!" << std::endl;
-        this->Energy_points--;
+        std::cout << "ClapTrap is dead" << std::endl; 
+        return ;  
     }
-    else
-        std::cout << "ClapTrap " << this->name << " cannot attack" << std::endl;
+    if (this->Energy_points <= 0)
+    {
+        std::cout << "ClapTrap " << this->name << " has no energy point to attack !!" << std::endl;
+        return ;
+    }
+    this->Energy_points--;
+    std::cout << "ClapTrap " << this->name <<  " attacks " << target << " causing " << this->Attack_damage << " points of damage!" << std::endl;
+    std::cout << "ClapTrap " << this->name << " has " << this->points << " Hit Points" << std::endl;
+    std::cout << "ClapTrap " << this->name <<  " has " << this->Energy_points << " Energy Points" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -52,6 +59,8 @@ void ClapTrap::takeDamage(unsigned int amount)
     }
     this->points = this->points - amount;
     std::cout << "ClapTrap " << this->name << " is taking damage" << std::endl;
+    std::cout << "ClapTrap " << this->name << " has " << this->points << " Hit Points" << std::endl;
+    std::cout << "ClapTrap " << this->name <<  " has " << this->Energy_points << " Energy Points" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)

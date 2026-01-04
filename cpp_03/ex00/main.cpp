@@ -4,8 +4,7 @@
 
 int main()
 {
-    // bismilah
-    // start
+
     ClapTrap trap("ayoub");
     trap.attack("Dummy");
     trap.beRepaired(5);
