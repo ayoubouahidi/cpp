@@ -28,3 +28,14 @@ Animal::~Animal()
 {
     std::cout << "Destructor called Animal" << std::endl;
 }
+
+
+std::string Animal::getType()
+{
+    return this->type;
+}
+
+void Animal::makeSound()
+{
+    std::cout << "No sound yet" << std::endl;
+}

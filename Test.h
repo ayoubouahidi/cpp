@@ -72,4 +72,13 @@ class Student : public Personne
         void show() override;
 };
 
+class Emp : public Personne
+{
+    private:
+        int salaire;
+    public:
+        Emp(std::string nom, int age, int salaire);
+        void show();
+};
+
 #endif

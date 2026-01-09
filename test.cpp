@@ -50,10 +50,21 @@ Student::Student(std::string nom, int age, std::string classe):Personne(nom, age
 }
 void Student::show()
 {
-	Personne::show();
+	// Personne::show();
 	std::cout << "classe student show is " << this->classe << std::endl;
 }
 
+
+Emp::Emp(std::string nom, int age, int salaire) : Personne(nom, age), salaire(salaire)
+{
+	std::cout << "constructeur called Emp " <<std::endl;
+}
+
+void Emp::show()
+{
+	// Personne::show();
+	std::cout << "salaire emp is " << this->salaire << std::endl;
+}
 int main()
 {
 	// **** test1 ***
@@ -142,9 +153,15 @@ int main()
 
 //  ********************************* CPP _ 03  *********************************
 
-	Personne p1("ayoub", 23);
-	Student s1("ayoub", 23, "cla1");
-	s1.show();
-	Personne s2 = Student("ouahidi", 20, "clas2");
-	s2.show();
+	// Personne p1("ayoub", 23);
+	// Student s1("ayoub", 23, "cla1");
+	// s1.show();
+	// Personne s2 = Student("ouahidi", 20, "clas2");
+	// s2.show();
+	Personne *per1 = new Student("ayoub", 23, "clas1");
+	Personne *per2 = new Emp("ouahidi", 23, 25000);
+	per1->show();
+	per2->show();
+	return 0;
+	
 }
