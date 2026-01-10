@@ -30,12 +30,12 @@ Animal::~Animal()
 }
 
 
-std::string Animal::getType()
+std::string Animal::getType() const
 {
     return this->type;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
     std::cout << "No sound yet" << std::endl;
 }

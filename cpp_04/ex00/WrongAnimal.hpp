@@ -1,3 +1,6 @@
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
+
 #include <iostream>
 
 
@@ -11,7 +14,8 @@ class WrongAnimal
         WrongAnimal(WrongAnimal &other);
         virtual ~WrongAnimal();
         WrongAnimal& operator=(const WrongAnimal& other);
-        std::string getType();
-        virtual void makeSound();
+        std::string getType() const;
+        virtual void makeSound() const;
 };
 
+#endif

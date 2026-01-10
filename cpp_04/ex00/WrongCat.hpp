@@ -1,3 +1,6 @@
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
+
 #include <iostream>
 #include "WrongAnimal.hpp"
 
@@ -8,5 +11,7 @@ class WrongCat : public WrongAnimal
         WrongCat(WrongCat &other);
         ~WrongCat();
         WrongCat& operator=(const WrongCat& other);
-        void makeSound();
+        void makeSound() const;
 };
+
+#endif

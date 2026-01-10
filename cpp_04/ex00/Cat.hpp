@@ -1,6 +1,8 @@
-#include <iostream>
+#ifndef CAT_HPP
+#define CAT_HPP
 
-#include "Dog.hpp"
+#include <iostream>
+#include "Animal.hpp"
 
 class Cat : public Animal 
 {
@@ -9,5 +11,7 @@ class Cat : public Animal
         Cat(Cat &other);
         ~Cat();
         Cat& operator=(const Cat& other);
-        void makeSound();
+        void makeSound() const;
 };
+
+#endif

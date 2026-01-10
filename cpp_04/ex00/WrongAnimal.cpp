@@ -30,12 +30,12 @@ WrongAnimal::~WrongAnimal()
 }
 
 
-std::string WrongAnimal::getType()
+std::string WrongAnimal::getType() const
 {
     return this->type;
 }
 
-void WrongAnimal::makeSound()
+void WrongAnimal::makeSound() const
 {
     std::cout << "No sound yet" << std::endl;
 }
