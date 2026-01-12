@@ -1,3 +1,6 @@
+#ifndef CLAP_TRAP
+#define CLAP_TRAP
+
 #include <iostream>
 
 class ClapTrap
@@ -20,3 +23,4 @@ class ClapTrap
         void beRepaired(unsigned int amount);
 
 };
+#endif

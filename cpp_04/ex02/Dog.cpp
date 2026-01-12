@@ -32,7 +32,7 @@ Dog &Dog::operator=(const Dog& other)
 }
 
 
-void Dog::makeSound() const
+void Dog::makeSound()
 {
     std::cout << "Woof" << std::endl;
 }

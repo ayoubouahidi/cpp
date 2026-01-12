@@ -1,14 +1,13 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat():WrongAnimal()
 {
     type = "WrongCat";
     std::cout << "Default consructeur called in WrongCat" << std::endl;
 }
 
-WrongCat::WrongCat(WrongCat &other)
+WrongCat::WrongCat(WrongCat &other):WrongAnimal(other)
 {
-    (void)other;
     std::cout << "Copy constructor called WrongCat" << std::endl;
 }
 
@@ -21,6 +20,7 @@ WrongCat &WrongCat::operator=(const WrongCat& other)
 {
     if (this == &other)
         return *this;
+    this->type = other.type;
     std::cout << "Copy assignment operator called in WrongCat" << std::endl;
     return *this;
 }

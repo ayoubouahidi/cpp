@@ -1,3 +1,6 @@
+#ifndef SCRAV
+# define SCRAV
+
 #include <iostream>
 #include "ClapTrap.hpp"
 
@@ -13,3 +16,5 @@ class ScavTrap : public ClapTrap
     void attack(const std::string& target);
     void guardGate( void );
 };
+
+#endif
