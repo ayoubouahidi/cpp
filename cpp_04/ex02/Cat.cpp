@@ -7,7 +7,7 @@ Cat::Cat():Animal()
     std::cout << "Default consructeur called in Cat" << std::endl;
 }
 
-Cat::Cat(Cat &other):Animal(other)
+Cat::Cat(const Cat &other):Animal(other)
 {
     brain = new Brain();
     *brain = *other.brain;
@@ -30,7 +30,7 @@ Cat &Cat::operator=(const Cat& other)
     return *this;
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const  
 {
     std::cout << "Moew" << std::endl;
 }

@@ -10,8 +10,8 @@ class WrongAnimal
         std::string type;
     public:
         WrongAnimal();
-        WrongAnimal(std::string &type);
-        WrongAnimal(WrongAnimal &other);
+        WrongAnimal(const std::string &type);
+        WrongAnimal(const WrongAnimal &other);
         virtual ~WrongAnimal();
         WrongAnimal& operator=(const WrongAnimal& other);
         std::string getType() const;

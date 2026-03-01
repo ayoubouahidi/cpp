@@ -2,13 +2,12 @@
 
 Dog::Dog():Animal()
 {
-    Brain  brain;
-    this->brain = new Brain(brain);
+    this->brain = new Brain();
     type = "Dog";
     std::cout << "Default consructeur called in Dog" << std::endl;
 }
 
-Dog::Dog(Dog &other):Animal(other)
+Dog::Dog(const Dog &other):Animal(other)
 {
     brain = new Brain();
     *brain = *other.brain;
@@ -32,7 +31,7 @@ Dog &Dog::operator=(const Dog& other)
 }
 
 
-void Dog::makeSound()
+void Dog::makeSound() const 
 {
     std::cout << "Woof" << std::endl;
 }

@@ -11,7 +11,7 @@ class Cat : public Animal
         Brain* brain;
     public:
         Cat();
-        Cat(Cat &other);
+        Cat(const Cat &other);
         ~Cat();
         Cat& operator=(const Cat& other);
         void makeSound() const;

@@ -5,7 +5,7 @@ Brain::Brain()
     std::cout << "Default constructor called in Brain" << std::endl;
 }
 
-Brain::Brain(Brain &other)
+Brain::Brain(const Brain &other)
 {
     for (int i = 0; i < 100; i++)
         this->ideas[i] = other.ideas[i];

@@ -7,13 +7,17 @@
 
 int main()
 {
-    Cat *Animal = new Cat();
-    // const WrongAnimal* wanimal = new WrongAnimal();
-    // const WrongAnimal* k = new WrongCat();
-    // std::cout << k->getType() << " " << std::endl;
-    // k->makeSound();
-    // wanimal->makeSound();
-    // delete wanimal;
-    // delete k;
+    // const Animal* meta = new Animal();
+    Animal* j = new Dog();
+    Animal* i = new Cat();
+
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound();
+    j->makeSound();
+    // meta->makeSound();
+    delete i;
+    delete j;
+
     return 0;
 }

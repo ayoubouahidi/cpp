@@ -5,12 +5,12 @@ Animal::Animal()
     std::cout  << "Default consructeur called in Animal" << std::endl;
 }
 
-Animal::Animal(std::string &type):type(type)
+Animal::Animal(const std::string &type):type(type)
 {
     std::cout  << "Default consructeur called in Animal with type" << this->type << std::endl;
 }
 
-Animal::Animal(Animal &other):type(other.type)
+Animal::Animal(const  Animal &other):type(other.type)
 {
     std::cout << "Copy constructor called Animal" << std::endl;
 }
