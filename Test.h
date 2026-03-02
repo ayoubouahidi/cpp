@@ -52,33 +52,40 @@
 // };
 
 
-class Personne
-{
-    private:
-        std::string nom;
-        int age;
-    public:
-        Personne(std::string nom, int age);
-        virtual void show();
-};
+// class Personne
+// {
+//     private:
+//         std::string nom;
+//         int age;
+//     public:
+//         Personne(std::string nom, int age);
+//         virtual void show();
+// };
 
-class Student : public Personne
-{
-    private:
-        std::string classe;
-    public:
-        using Personne::Personne;
-        Student(std::string nom, int age, std::string classe);
-        void show() override;
-};
+// class Student : public Personne
+// {
+//     private:
+//         std::string classe;
+//     public:
+//         using Personne::Personne;
+//         Student(std::string nom, int age, std::string classe);
+//         void show() override;
+// };
 
-class Emp : public Personne
-{
-    private:
-        int salaire;
+// class Emp : public Personne
+// {
+//     private:
+//         int salaire;
+//     public:
+//         Emp(std::string nom, int age, int salaire);
+//         void show();
+// };
+
+
+class CustomExeption : public std::exception {
     public:
-        Emp(std::string nom, int age, int salaire);
-        void show();
+        CustomExeption();
+        const char* what() const noexcept;
 };
 
 #endif

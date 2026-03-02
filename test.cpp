@@ -34,37 +34,42 @@
 // 	int x = 0;
 // }
 
-Personne::Personne(std::string nom, int age):nom(nom) , age(age)
-{
-	std::cout << "constructeur called Personne" <<std::endl;
-}
+// Personne::Personne(std::string nom, int age):nom(nom) , age(age)
+// {
+// 	std::cout << "constructeur called Personne" <<std::endl;
+// }
 
-void Personne::show()
-{
-	std::cout << "nom est :" << nom  << "age est " << age <<std::endl;
-}
+// void Personne::show()
+// {
+// 	std::cout << "nom est :" << nom  << "age est " << age <<std::endl;
+// }
 
-Student::Student(std::string nom, int age, std::string classe):Personne(nom, age), classe(classe)
-{
-	std::cout << "constructeur called Student " <<std::endl;
-}
-void Student::show()
-{
-	// Personne::show();
-	std::cout << "classe student show is " << this->classe << std::endl;
-}
+// Student::Student(std::string nom, int age, std::string classe):Personne(nom, age), classe(classe)
+// {
+// 	std::cout << "constructeur called Student " <<std::endl;
+// }
+// void Student::show()
+// {
+// 	// Personne::show();
+// 	std::cout << "classe student show is " << this->classe << std::endl;
+// }
 
 
-Emp::Emp(std::string nom, int age, int salaire) : Personne(nom, age), salaire(salaire)
-{
-	std::cout << "constructeur called Emp " <<std::endl;
-}
+// Emp::Emp(std::string nom, int age, int salaire) : Personne(nom, age), salaire(salaire)
+// {
+// 	std::cout << "constructeur called Emp " <<std::endl;
+// }
 
-void Emp::show()
-{
-	// Personne::show();
-	std::cout << "salaire emp is " << this->salaire << std::endl;
-}
+// void Emp::show()
+// {
+// 	// Personne::show();
+// 	std::cout << "salaire emp is " << this->salaire << std::endl;
+// }
+
+// ***** cpp 05
+
+
+
 int main()
 {
 	// **** test1 ***
@@ -158,10 +163,10 @@ int main()
 	// s1.show();
 	// Personne s2 = Student("ouahidi", 20, "clas2");
 	// s2.show();
-	Personne *per1 = new Student("ayoub", 23, "clas1");
-	Personne *per2 = new Emp("ouahidi", 23, 25000);
-	per1->show();
-	per2->show();
-	return 0;
+	// Personne *per1 = new Student("ayoub", 23, "clas1");
+	// Personne *per2 = new Emp("ouahidi", 23, 25000);
+	// per1->show();
+	// per2->show();
+	// return 0;
 	
 }
