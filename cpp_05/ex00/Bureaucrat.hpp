@@ -14,8 +14,8 @@ class Bureaucrat
         void increment();
         void decrement();
         Bureaucrat& operator=(const Bureaucrat& other);
-        std::string getName();
-        int getGrade();
+        std::string getName() const;
+        int getGrade() const;
         std::ostream& operator <<(std::ostream& os);
 };
 
@@ -31,4 +31,6 @@ class GradeTooLowException : public std::exception
     public: 
         GradeTooLowException();    
         const char* what() const throw();   
-};  
+};
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b);

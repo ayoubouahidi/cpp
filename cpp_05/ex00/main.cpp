@@ -19,7 +19,8 @@ int main()
         Bureaucrat test4("test 4", 1);
         // test4.decrement();
         // std::cout << test4.getGrade() << std::endl;
-        std::cout << "bureaucrat" << std::endl;
+        std::cout << test1 << std::endl;
+
     }catch( std::exception &e)
     {
         std::cout << e.what() << std::endl;

@@ -32,12 +32,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 }
 
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
     return this->grade;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return this->name;
 }
@@ -79,4 +79,9 @@ GradeTooLowException::GradeTooLowException()
 const char* GradeTooLowException::what() const throw()
 {
     return "range is to low : should be more or equal than 150";
+}
+
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b) {
+    out << b.getName() << ", bureaucrat grade " << b.getGrade();
+    return out;
 }
