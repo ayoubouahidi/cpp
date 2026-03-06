@@ -1,7 +1,7 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(): name(), grade_sign(), grade_exec(), indicateur()
+Form::Form(): name(), grade_sign(), grade_exec(), indicateur()  
 {
 
 }
@@ -9,9 +9,9 @@ Form::Form(): name(), grade_sign(), grade_exec(), indicateur()
 Form::Form(const std::string& name , int grade_sign, int grade_exec, bool indicateur):name(name), grade_sign(grade_sign), grade_exec(grade_exec), indicateur(indicateur)
 {
     if (this->grade_sign > 150 || this->grade_exec > 150)
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
     else if (this->grade_sign < 1 || this->grade_exec < 1)
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
 }
 
 Form::Form(const Form &other):name(other.name), grade_sign(other.grade_sign), grade_exec(other.grade_exec), indicateur(other.indicateur)
@@ -45,7 +45,8 @@ bool Form::getIndc() const
 
 void Form::beSigned(Bureaucrat b)
 {
-    
+    // if (this->getGrade_sign() < b.getGrade())
+        // throw 
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& f)

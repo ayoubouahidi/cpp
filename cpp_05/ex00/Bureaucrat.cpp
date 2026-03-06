@@ -9,9 +9,9 @@ Bureaucrat::Bureaucrat():name(""), grade(150)
 Bureaucrat::Bureaucrat(const std::string& name, int grade):name(name), grade(grade)
 {
     if (this->grade > 150)
-        throw GradeTooLowException();
+        throw Bureaucrat::GradeTooLowException();
     else if (this->grade < 1)
-        throw GradeTooHighException();
+        throw Bureaucrat::GradeTooHighException();
 }
 
 Bureaucrat::~Bureaucrat()
@@ -44,41 +44,39 @@ std::string Bureaucrat::getName() const
 
 void Bureaucrat::increment()
 {
-    if(this->grade + 1 > 150)
-        throw GradeTooLowException();
-    this->grade++;
-}
-
-void Bureaucrat::decrement()
-{
     if (this->grade - 1 < 1)
         throw GradeTooHighException();
     this->grade--;
 }
 
-std::ostream& Bureaucrat::operator <<(std::ostream& os)
+void Bureaucrat::decrement()
 {
-    os << this->name << "Bureaucrat grade" << this->grade;
-    return os;
-}
-
-// exeption function 
-
-GradeTooHighException::GradeTooHighException()
-{}
-
-const char* GradeTooHighException::what () const throw()
-{
-    return "range is to hight : should be less or equal than 1";
+    if (this->grade + 1 > 150)
+        throw GradeTooLowException();
+    this->grade++;
 }
 
 
-GradeTooLowException::GradeTooLowException()
+
+// exception functions
+
+
+
+Bureaucrat::GradeTooHighException::GradeTooHighException()
 {}
 
-const char* GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
-    return "range is to low : should be more or equal than 150";
+    return "grade is too high: should be greater than or equal to 1";
+}
+
+
+Bureaucrat::GradeTooLowException::GradeTooLowException()
+{}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+    return "grade is too low: should be less than or equal to 150";
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b) {

@@ -6,7 +6,7 @@ class Form
         const std::string name;
         const int grade_sign;
         const int  grade_exec;
-        const bool indicateur;
+        const bool indicateur = false;
     public:
         Form();
         Form(const std::string& name , int grade_sign, int grade_exec, bool indicateur);
@@ -17,6 +17,13 @@ class Form
         int getGrade_exe() const;
         bool getIndc() const;
         void beSigned(Bureaucrat b);
+
+    class GradeTooLowException : public std::exception
+        {   
+            public: 
+                GradeTooLowException();    
+                const char* what() const throw();   
+        };
 };
 
 std::ostream& operator<<(std::ostream& out, const Form& f);

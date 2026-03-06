@@ -6,7 +6,6 @@ int main()
     std::string nameT = "test1";
     try
     {
-        std::cout << "test done" << std::endl;
         Bureaucrat test1("ouahidi", 150);
         std::cout << test1.getName() << std::endl;
         // Bureaucrat test2("ayoub", -1);

@@ -56,27 +56,21 @@ void Bureaucrat::decrement()
     this->grade--;
 }
 
-std::ostream& Bureaucrat::operator <<(std::ostream& os)
-{
-    os << this->name << "Bureaucrat grade" << this->grade;
-    return os;
-}
-
 // exeption function 
 
-GradeTooHighException::GradeTooHighException()
+Bureaucrat::GradeTooHighException::GradeTooHighException()
 {}
 
-const char* GradeTooHighException::what () const throw()
+const char* Bureaucrat::GradeTooHighException::what () const throw()
 {
     return "range is to hight : should be less or equal than 1";
 }
 
 
-GradeTooLowException::GradeTooLowException()
+Bureaucrat::GradeTooLowException::GradeTooLowException()
 {}
 
-const char* GradeTooLowException::what() const throw()
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
     return "range is to low : should be more or equal than 150";
 }
