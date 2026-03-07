@@ -45,12 +45,24 @@ bool Form::getIndc() const
 
 void Form::beSigned(Bureaucrat b)
 {
-    // if (this->getGrade_sign() < b.getGrade())
-        // throw 
+    if (this->getGrade_sign() < b.getGrade())
+        throw Form::GradeTooLowException();
+    this->indicateur = true;
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& f)
 {
     out << f.getName() << ", Form grade required to sign it :" << f.getGrade_sign() << ", grade required to execute it : " , f.getGrade_exe();
     return out;
+}
+
+
+// execption functions 
+
+Form::GradeTooLowException::GradeTooLowException()
+{}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+    return "range is to low : should be more or equal than 150";
 }

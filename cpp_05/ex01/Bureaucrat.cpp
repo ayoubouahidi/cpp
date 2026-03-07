@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 #include <string>
-
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat():name(""), grade(150)
 {
@@ -56,6 +56,22 @@ void Bureaucrat::decrement()
     this->grade--;
 }
 
+
+void Bureaucrat::signedForm(Form& form)
+{
+    try{
+        form.beSigned(*this);
+        if (!form.getIndc())
+            throw 
+            
+    }
+    catch(const std::exception& e)
+    {
+
+    }
+
+        
+}
 // exeption function 
 
 Bureaucrat::GradeTooHighException::GradeTooHighException()

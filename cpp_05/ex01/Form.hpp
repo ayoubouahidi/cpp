@@ -6,7 +6,7 @@ class Form
         const std::string name;
         const int grade_sign;
         const int  grade_exec;
-        const bool indicateur = false;
+        bool indicateur = false;
     public:
         Form();
         Form(const std::string& name , int grade_sign, int grade_exec, bool indicateur);
@@ -21,7 +21,7 @@ class Form
     class GradeTooLowException : public std::exception
         {   
             public: 
-                GradeTooLowException();    
+                GradeTooLowException();
                 const char* what() const throw();   
         };
 };
