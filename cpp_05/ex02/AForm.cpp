@@ -67,3 +67,11 @@ const char* AForm::GradeTooLowException::what() const throw()
 {
     return "range is to low";
 }
+
+// 
+
+void check_required(AForm form, int sign, int exec)
+{
+    if (form.getGrade_sign() != sign || form.getGrade_exe() != exec)
+        throw AForm::WrongValue();
+}

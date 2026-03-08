@@ -3,7 +3,7 @@ NAME = Form
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Bureaucrat.cpp main.cpp Form.cpp
+SRCS = Bureaucrat.cpp main.cpp AForm.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(NAME)

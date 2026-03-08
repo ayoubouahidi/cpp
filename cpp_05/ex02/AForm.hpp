@@ -29,7 +29,14 @@ class AForm
                 GradeTooLowException();
                 const char* what() const throw();   
         };
+    class WrongValue :  public std::exception
+        {
+            public:
+                WrongValue();
+                const char * what() const throw();
+        };
 };
+
 
 std::ostream& operator<<(std::ostream& out, const AForm& f);
 
