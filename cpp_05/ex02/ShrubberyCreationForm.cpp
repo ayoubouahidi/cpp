@@ -2,20 +2,20 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 #include <string>
+#include "AForm.hpp"
 
 
-
-ShrubberyCreationForm::ShrubberyCreationForm():target()
+ShrubberyCreationForm::ShrubberyCreationForm():AForm(), target("")
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target):target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm(),target(target)
 {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):target(other.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):AForm(),target(other.target)
 {
 }
 
