@@ -22,19 +22,14 @@ class AForm
         int getGrade_exe() const;
         bool getIndc() const;
         void beSigned(Bureaucrat& b);
-
+        virtual void execute(Bureaucrat const& executor) const = 0;
     class GradeTooLowException : public std::exception
         {   
             public: 
                 GradeTooLowException();
                 const char* what() const throw();   
         };
-    class WrongValue :  public std::exception
-        {
-            public:
-                WrongValue();
-                const char * what() const throw();
-        };
+
 };
 
 

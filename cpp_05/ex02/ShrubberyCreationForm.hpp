@@ -2,18 +2,28 @@
 # define SHRUBBEY_HPP
 #include "AForm.hpp"
 
-class ShrubberyCreationForm:AForm
+#include <fstream>
+
+class ShrubberyCreationForm: public AForm
 {
     private:
-        AForm form;
+        std::string target;
     public:
         ShrubberyCreationForm();
-        ShrubberyCreationForm(AForm form);
+        ShrubberyCreationForm(std::string target);
         virtual ~ShrubberyCreationForm();
         ShrubberyCreationForm(const ShrubberyCreationForm & other);
-        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);
-        virtual void execute(Bureaucrat const& executor) const = 0;  
-};
-void check_required(AForm form, int sign, int exec);
+        ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);  
+        void execute(Bureaucrat const& executor) const;
+
+        class WrongValue :  public std::exception
+        {
+            public:
+                WrongValue();
+                const char * what() const throw();
+        };
+
+
+    };
 
 #endif

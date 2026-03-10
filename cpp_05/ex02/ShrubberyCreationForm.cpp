@@ -1,19 +1,21 @@
 #include "ShrubberyCreationForm.hpp"
+#include "Bureaucrat.hpp"
+#include <fstream>
+#include <string>
 
 
 
-ShrubberyCreationForm::ShrubberyCreationForm():form()
+ShrubberyCreationForm::ShrubberyCreationForm():target()
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(AForm form):form(form)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):target(target)
 {
-    check_required(form, 145, 137);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):form(other.form)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):target(other.target)
 {
 }
 
@@ -21,6 +23,45 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
     if (this == &other)
         return *this;
+    this->target = other.target;
     return *this;
 }
 
+
+
+
+
+void createShrubbery(std::string target)
+{
+    std::string full_name = target + "_shrubbery";
+    std::ofstream file(full_name.c_str());
+    if (!file.is_open())
+        return ;
+    file << "    *\n";
+    file << "   ***\n";
+    file << "  *****\n";
+    file << " *******\n";
+    file << "    |\n";
+    file.close();
+    
+}
+
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
+{
+    if (executor.getGrade() > this->getGrade_exe())
+        throw GradeTooLowException();
+    createShrubbery(this->target);
+}
+
+
+
+
+
+// exeption 
+ShrubberyCreationForm::WrongValue::WrongValue()
+{}
+
+const char * ShrubberyCreationForm::WrongValue::what() const throw()
+{
+    return "Wrong value";    
+}
