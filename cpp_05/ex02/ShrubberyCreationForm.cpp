@@ -8,14 +8,14 @@
 ShrubberyCreationForm::ShrubberyCreationForm():AForm(), target("")
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm(),target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):AForm(),target(other.target)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):AForm(other), target(other.target)
 {
 }
 
@@ -48,8 +48,10 @@ void createShrubbery(std::string target)
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
+    if (!this->getIndc())
+        throw AForm::GradeTooLowException();
     if (executor.getGrade() > this->getGrade_exe())
-        throw GradeTooLowException();
+        throw AForm::GradeTooLowException();
     createShrubbery(this->target);
 }
 
@@ -64,4 +66,14 @@ ShrubberyCreationForm::WrongValue::WrongValue()
 const char * ShrubberyCreationForm::WrongValue::what() const throw()
 {
     return "Wrong value";    
+}
+
+std::ostream	&operator<<(std::ostream &o, ShrubberyCreationForm *a)
+{
+	o << "Form " << a->getName() <<
+	":\n\tsign-grade:\t" << a->getGrade_sign() <<
+	"\n\texec-grade:\t" << a->getGrade_exe() <<
+	"\n\tis signed:\t" << a->getIndc() <<
+	std::endl;
+	return (o);
 }
