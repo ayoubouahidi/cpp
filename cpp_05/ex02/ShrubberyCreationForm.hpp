@@ -16,14 +16,6 @@ class ShrubberyCreationForm: public AForm
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& other);  
         void execute(Bureaucrat const& executor) const;
 
-        class WrongValue :  public std::exception
-        {
-            public:
-                WrongValue();
-                const char * what() const throw();
-        };
-
-
     };
 std::ostream	&operator<<(std::ostream &o, ShrubberyCreationForm *a);
 #endif

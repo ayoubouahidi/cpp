@@ -48,10 +48,10 @@ void createShrubbery(std::string target)
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
+    if ((int)executor.getGrade() > this->getGrade_exe())
+        throw Bureaucrat::GradeTooLowException();
     if (!this->getIndc())
-        throw AForm::GradeTooLowException();
-    if (executor.getGrade() > this->getGrade_exe())
-        throw AForm::GradeTooLowException();
+        throw AForm::FormNotSign();
     createShrubbery(this->target);
 }
 
@@ -60,13 +60,13 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 
 
 // exeption 
-ShrubberyCreationForm::WrongValue::WrongValue()
-{}
+// ShrubberyCreationForm::WrongValue::WrongValue()
+// {}
 
-const char * ShrubberyCreationForm::WrongValue::what() const throw()
-{
-    return "Wrong value";    
-}
+// const char * ShrubberyCreationForm::WrongValue::what() const throw()
+// {
+//     return "Wrong value";    
+// }
 
 std::ostream	&operator<<(std::ostream &o, ShrubberyCreationForm *a)
 {

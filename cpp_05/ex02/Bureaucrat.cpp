@@ -87,7 +87,7 @@ Bureaucrat::GradeTooHighException::GradeTooHighException()
 
 const char* Bureaucrat::GradeTooHighException::what () const throw()
 {
-    return "range is to hight : should be less or equal than 1";
+    return "range is to hight ";
 }
 
 
@@ -96,7 +96,7 @@ Bureaucrat::GradeTooLowException::GradeTooLowException()
 
 const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
-    return "range is to low : should be more or equal than 150";
+    return "range is to low ";
 }
 
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b) {

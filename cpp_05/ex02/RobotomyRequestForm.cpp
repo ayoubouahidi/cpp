@@ -1,4 +1,6 @@
 #include "RobotomyRequestForm.hpp"
+#include "Bureaucrat.hpp"
+
 
 RobotomyRequestForm::RobotomyRequestForm():AForm(), target("")
 {
@@ -31,6 +33,28 @@ std::string	RobotomyRequestForm::getTarget(void)const
 	return (this->target);
 }
 
+static int robot_fail = 0;
+
+
+void Robotisme(std::string target)
+{
+	std::cout << "Drr.....Bzzz" << std::endl;
+	if (robot_fail++ % 2 == 0)
+		std::cout << target << " has been robotomized" << std::endl;
+	else 
+		std::cout << "the robotomy failed" << std::endl; 
+}
+
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const 
+{
+	// (void)executor;
+	if ((int)executor.getGrade() > this->getGrade_exe() )
+		throw Bureaucrat::GradeTooLowException();
+	if (!this->getIndc())
+		throw AForm::FormNotSign();
+	Robotisme(this->target);
+}
+
 std::ostream	&operator<<(std::ostream &o, RobotomyRequestForm *a)
 {
 	o << "Form " << a->getName() <<
@@ -40,3 +64,4 @@ std::ostream	&operator<<(std::ostream &o, RobotomyRequestForm *a)
 	std::endl;
 	return (o);
 }
+

@@ -68,5 +68,13 @@ const char* AForm::GradeTooLowException::what() const throw()
     return "range is to low";
 }
 
+
+AForm::FormNotSign::FormNotSign()
+{}
+
+const char* AForm::FormNotSign::what() const throw()
+{
+    return "Form not sign in";
+}
 // 
 

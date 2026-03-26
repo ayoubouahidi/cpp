@@ -23,12 +23,20 @@ class AForm
         bool getIndc() const;
         void beSigned(Bureaucrat& b);
         virtual void execute(Bureaucrat const& executor) const = 0;
+
     class GradeTooLowException : public std::exception
-        {   
-            public: 
-                GradeTooLowException();
-                const char* what() const throw();   
-        };
+    {   
+        public: 
+            GradeTooLowException();
+            const char* what() const throw();   
+    };
+    
+    class FormNotSign : public std::exception
+    {
+        public:
+            FormNotSign();
+            const char* what() const throw();
+    };
 
 };
 
