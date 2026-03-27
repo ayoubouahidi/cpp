@@ -50,9 +50,10 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	// (void)executor;
 	if ((int)executor.getGrade() > this->getGrade_exe() )
 		throw Bureaucrat::GradeTooLowException();
-	if (!this->getIndc())
+	else if (!this->getIndc())
 		throw AForm::FormNotSign();
-	Robotisme(this->target);
+	else
+		Robotisme(this->target);
 }
 
 std::ostream	&operator<<(std::ostream &o, RobotomyRequestForm *a)

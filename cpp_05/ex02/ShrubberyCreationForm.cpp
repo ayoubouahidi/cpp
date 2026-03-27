@@ -6,14 +6,20 @@
 
 
 ShrubberyCreationForm::ShrubberyCreationForm():AForm(), target("")
-{}
+{
+    std::cout << "default constructor" << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target):AForm("ShrubberyCreationForm", 145, 137), target(target)
 {
+    std::cout << "ShrubberyCreationForm Constructor for target " << this->getTarget() << " called" << std::endl;
+
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
-{}
+{
+     std::cout << "RobotomyRequestForm Deconstructor " << this->getName() << " called" << std::endl;
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other):AForm(other), target(other.target)
 {
@@ -21,6 +27,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
 {
+    std::cout << "ShrubberyCreationForm Assignation operator called" << std::endl;
     if (this == &other)
         return *this;
     this->target = other.target;
@@ -50,9 +57,15 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
 {
     if ((int)executor.getGrade() > this->getGrade_exe())
         throw Bureaucrat::GradeTooLowException();
-    if (!this->getIndc())
+    else if (!this->getIndc())
         throw AForm::FormNotSign();
-    createShrubbery(this->target);
+    else
+        createShrubbery(this->target);
+}
+
+std::string	ShrubberyCreationForm::getTarget(void)const
+{
+	return (this->target);
 }
 
 
