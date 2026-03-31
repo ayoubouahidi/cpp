@@ -17,6 +17,7 @@ class AForm
         AForm(const std::string& name , int grade_sign, int grade_exec);
         AForm(const AForm &other);
         virtual ~AForm();
+        AForm& operator=(const AForm& other);
         std::string getName() const;
         int getGrade_sign() const;
         int getGrade_exe() const;

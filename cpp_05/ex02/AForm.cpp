@@ -24,6 +24,13 @@ AForm::~AForm()
     std::cout <<  "Destructor called AForm" << std::endl;
 }
 
+AForm& AForm::operator=(const AForm& other)
+{
+    if (this != &other)
+        this->indicateur = other.indicateur;
+    return *this;
+}
+
 int AForm::getGrade_exe() const
 {
     return this->grade_exec;
