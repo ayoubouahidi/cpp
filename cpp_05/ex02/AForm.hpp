@@ -31,6 +31,13 @@ class AForm
             GradeTooLowException();
             const char* what() const throw();   
     };
+
+    class GradeTooHighException : public std::exception
+    {   
+        public: 
+            GradeTooHighException();    
+            const char* what() const throw();   
+    };
     
     class FormNotSign : public std::exception
     {
