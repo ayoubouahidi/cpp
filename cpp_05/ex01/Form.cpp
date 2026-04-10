@@ -10,9 +10,9 @@ Form::Form(const std::string& name , int grade_sign, int grade_exec):name(name),
 {
     indicateur = false;
     if (this->grade_sign > 150 || this->grade_exec > 150)
-        throw Bureaucrat::GradeTooLowException();
+        throw Form::GradeTooLowException();
     else if (this->grade_sign < 1 || this->grade_exec < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw Form::GradeTooHighException();
 }
 
 Form::Form(const Form &other):name(other.name), grade_sign(other.grade_sign), grade_exec(other.grade_exec), indicateur(other.indicateur)
@@ -46,7 +46,7 @@ bool Form::getIndc() const
 
 void Form::beSigned(Bureaucrat& b)
 {
-    if (this->getGrade_sign() < b.getGrade())
+    if (b.getGrade() > this->getGrade_sign())
         throw Form::GradeTooLowException();
     this->indicateur = true;
 }
@@ -66,4 +66,13 @@ Form::GradeTooLowException::GradeTooLowException()
 const char* Form::GradeTooLowException::what() const throw()
 {
     return "range is to low";
+}
+
+Form::GradeTooHighException::GradeTooHighException()
+{
+}
+
+const char* Form::GradeTooHighException::what() const throw()
+{
+    return "grade is too high";
 }

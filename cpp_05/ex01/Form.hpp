@@ -29,6 +29,13 @@ class Form
                 GradeTooLowException();
                 const char* what() const throw();   
         };
+
+    class GradeTooHighException : public std::exception
+    {   
+        public: 
+            GradeTooHighException();    
+            const char* what() const throw();   
+    };    
 };
 
 std::ostream& operator<<(std::ostream& out, const Form& f);

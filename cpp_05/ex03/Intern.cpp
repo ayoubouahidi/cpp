@@ -57,9 +57,7 @@ AForm *Intern::makeForm(std::string nameForm, std::string target)
         }
         i++;
     }
-    std::cout << "Intern can not create a form called " << nameForm << std::endl;
-    return (NULL);
+    throw std::invalid_argument("Intern can not create a form called " + nameForm);
 }
-
 
 

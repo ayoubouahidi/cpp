@@ -53,7 +53,7 @@ bool AForm::getIndc() const
 
 void AForm::beSigned(Bureaucrat& b)
 {
-    if (this->getGrade_sign() < b.getGrade())
+    if (b.getGrade() > this->getGrade_sign())
         throw AForm::GradeTooLowException();
     this->indicateur = true;
 }
