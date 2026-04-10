@@ -1,18 +1,17 @@
  #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(): name(), grade_sign(), grade_exec()
+AForm::AForm(): name(), grade_sign(), grade_exec(), indicateur(false)  // a voir
 {
 
 }
 
-AForm::AForm(const std::string& name , int grade_sign, int grade_exec):name(name), grade_sign(grade_sign), grade_exec(grade_exec)
+AForm::AForm(const std::string& name , int grade_sign, int grade_exec):name(name), grade_sign(grade_sign), grade_exec(grade_exec), indicateur(false)
 {
-    indicateur = false;
     if (this->grade_sign > 150 || this->grade_exec > 150)
-        throw Bureaucrat::GradeTooLowException();
+        throw AForm::GradeTooLowException();
     else if (this->grade_sign < 1 || this->grade_exec < 1)
-        throw Bureaucrat::GradeTooHighException();
+        throw AForm::GradeTooHighException();
 }
 
 AForm::AForm(const AForm &other):name(other.name), grade_sign(other.grade_sign), grade_exec(other.grade_exec), indicateur(other.indicateur)
@@ -84,5 +83,15 @@ const char* AForm::FormNotSign::what() const throw()
 {
     return "Form not sign in";
 }
+
+AForm::GradeTooHighException::GradeTooHighException()
+{
+}
+
+const char* AForm::GradeTooHighException::what() const throw()
+{
+    return "grade is too high";
+}
+
 // 
 
