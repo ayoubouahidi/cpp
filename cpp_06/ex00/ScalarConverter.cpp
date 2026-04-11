@@ -23,7 +23,7 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
     return *this;
 }
 
-static void ScalarConverter::convert(std::string& literal)
+void ScalarConverter::convert(std::string& literal)
 {
-    
+    // to do 
 }
