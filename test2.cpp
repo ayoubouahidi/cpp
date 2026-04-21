@@ -49,22 +49,37 @@
 // }
 
 
-int main()
-{
+// int main()
+// {
     // char c = 'c';
     // int i = static_cast<int>(c);
 
     // std::cout << c << std::endl;
     // std::cout << i << std::endl;
 
-    const int n = 16;
-    const int *ptr = &n;
-    // int *noconstPoint = ptr;  // we will have a error 
-    int *noconstPnt = const_cast<int *>(ptr); // solution 
-    *noconstPnt = 17;
-    std::cout << *noconstPnt << std::endl;
+    // const int n = 16;
+    // const int *ptr = &n;
+    // // int *noconstPoint = ptr;  // we will have a error 
+    // int *noconstPnt = const_cast<int *>(ptr); // solution 
+    // *noconstPnt = 17;
+    // std::cout << *noconstPnt << std::endl;
     
 
 
 
-}
+// }
+
+
+// int main()
+// {
+//     float f = 3.5;
+
+//     // Implicit type case
+//     // float to int
+//     int a = f;
+//     std::cout << "The Value of a: " << a << std::endl;
+
+//     // using static_cast for float to int
+//     int b = f;
+//     std::cout << "\nThe Value of b: " << b << std::endl;
+// }
