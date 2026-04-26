@@ -83,3 +83,24 @@
 //     int b = f;
 //     std::cout << "\nThe Value of b: " << b << std::endl;
 // }
+
+#include <iostream>
+using namespace std;
+
+class Animal { public: virtual void speak() {} };
+class Dog : public Animal { public: void fetch() { cout << "Fetching!\n"; } };
+class Cat : public Animal { public: void purr()  { cout << "Purring!\n"; } };
+
+int main() {
+    
+    Animal* a = new Dog();
+
+    Dog* dog = dynamic_cast<Dog*>(a);
+    if (!dog) cout << "Not a dog!\n";
+    if (dog) dog->fetch();             
+
+    Cat* cat = dynamic_cast<Cat*>(a); 
+    if (!cat) cout << "Not a cat!\n";  
+
+    delete a;
+}
