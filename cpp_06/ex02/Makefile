@@ -1,9 +1,9 @@
-NAME = convert
+NAME = dynamic
 
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = ScalarConverter.cpp main.cpp
+SRCS = A.cpp B.cpp C.cpp Base.cpp main.cpp
 OBJS = $(SRCS:%.cpp=%.o)
 
 all: $(NAME)

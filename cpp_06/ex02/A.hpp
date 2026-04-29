@@ -8,8 +8,8 @@
 class A : public Base
 {
     public:
-        A() {}
-        ~A() {}
+        A();
+        ~A();
 };
 
 #endif

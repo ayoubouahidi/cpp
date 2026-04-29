@@ -1,9 +1,9 @@
-#include "Base.cpp"
-#include "A.cpp"
-#include "B.cpp"
-#include "C.cpp"
+#include "A.hpp"
+#include "B.hpp"
+#include "C.hpp"
 #include <iostream>
-
+#include <cstdlib>
+#include <ctime>
 
 Base* generate(void)
 {
@@ -28,5 +28,32 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    
+ try
+ {
+    A& a = dynamic_cast<A&>(p);
+    std::cout << "A" << std::endl;
+    (void)a;
+ }
+ catch (std::exception& e)
+ {
+    try
+    {
+        B& b = dynamic_cast<B&>(p);
+        std::cout << "B" << std::endl;
+        (void)b;
+    }
+    catch(const std::exception& e)
+    {
+        std::cout << "C" << std::endl;
+    }
+ }
+ 
+}
+
+int main()
+{
+    srand(static_cast<unsigned int>(time(NULL)));
+    Base *rand = generate();
+    identify(rand);
+    identify(*rand);
 }
