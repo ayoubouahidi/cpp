@@ -47,7 +47,6 @@ void identify(Base& p)
         std::cout << "C" << std::endl;
     }
  }
- 
 }
 
 int main()
@@ -56,4 +55,5 @@ int main()
     Base *rand = generate();
     identify(rand);
     identify(*rand);
+    delete rand;
 }
