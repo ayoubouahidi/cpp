@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
+
 
 int main()
 {
@@ -13,7 +15,18 @@ int main()
 
     std::vector<int> v3 {100, 120, 140};
 
-    for (int x : v3)
+    // for (int x : v3)
+    // {
+    //     std::cout << x << " " << std::endl;
+    // }
+    std::vector<int>::iterator min = std::min_element(v3.begin(), v3.end());
+    std::cout << "min elements " << *min << std::endl;
+
+    std::vector<int> v4 {5, 3, 100, 3, 1 ,0};
+    // std::vector<int> sorted(v4);
+    std::vector<int> temp = v4;
+    std::sort(temp.begin(), temp.end());
+    for (int x : temp)
     {
         std::cout << x << " " << std::endl;
     }
