@@ -36,6 +36,7 @@ void Span::addNumber(int n)
         this->numbers.push_back(n);
     else
         throw std::exception();
+
 }
 
 
@@ -64,3 +65,20 @@ int Span::shortestSpan()
     return minDiff;
 }
 
+void Span::addRange(std::vector<int>::iterator first, std::vector<int>::iterator last)
+{
+    if (std::distance(first , last) + this->numbers.size() > this->N)
+        std::exception();
+    this->numbers.insert(numbers.end(), first, last);
+}
+
+
+std::vector<int>::iterator Span::get_first() 
+{
+    return numbers.begin();
+}
+
+std::vector<int>::iterator Span::get_last() 
+{
+    return numbers.end();
+}

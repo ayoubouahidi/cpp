@@ -21,6 +21,10 @@ class Span{
         void addNumber(int n);
         int shortestSpan();
         int longestSpan();
+        void addRange(std::vector<int>::iterator first, std::vector<int>::iterator last);
+        std::vector<int>::iterator get_first() ;
+        std::vector<int>::iterator get_last() ;
+
 };
 
 
