@@ -20,7 +20,7 @@ class BitcoinExchange{
         ~BitcoinExchange();
         void loadDataSet(std::string &path);
         bool check_valid_date(std::string &data);
-        
+        void procces_line(std::string &line);
 
 
 

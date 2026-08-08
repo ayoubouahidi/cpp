@@ -71,5 +71,33 @@ bool BitcoinExchange::check_valid_date(std::string &date)
     return true;
 }
 
+std::string trim(const std::string &str)
+{
+    const std::string whitespace = " \t\n\r\v\f";
 
+    size_t start = str.find_first_not_of(whitespace);
+    if (start == std::string::npos)
+        return "";
 
+    size_t end = str.find_last_not_of(whitespace);
+    return str.substr(start, end - start + 1);
+}
+
+void BitcoinExchange::procces_line(std::string &line)
+{
+    size_t sep = line.find('|');
+    if (sep == std::string::npos)
+    {
+        std::cout << "Error: bad input => " << line << std::endl;
+        return;
+    }
+    std::string date = trim(line.substr(0, sep));
+    std::string bitcoin = trim(line.substr(sep + 1));
+
+    if (!this->check_valid_date(date))
+    {
+        std::cerr << "ERROR : INVALID DATE " std::endl;
+        return ;
+    }
+
+}
