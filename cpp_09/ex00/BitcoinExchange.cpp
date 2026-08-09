@@ -96,8 +96,15 @@ void BitcoinExchange::procces_line(std::string &line)
 
     if (!this->check_valid_date(date))
     {
-        std::cerr << "ERROR : INVALID DATE " std::endl;
+        std::cerr << "ERROR : INVALID DATE " << std::endl;
         return ;
+    }
+    //  what the fuck ???
+    if ()
+    {
+        
     }
 
 }
+
+
