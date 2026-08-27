@@ -84,23 +84,38 @@
 //     std::cout << "\nThe Value of b: " << b << std::endl;
 // }
 
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
-class Animal { public: virtual void speak() {} };
-class Dog : public Animal { public: void fetch() { cout << "Fetching!\n"; } };
-class Cat : public Animal { public: void purr()  { cout << "Purring!\n"; } };
+// class Animal { public: virtual void speak() {} };
+// class Dog : public Animal { public: void fetch() { cout << "Fetching!\n"; } };
+// class Cat : public Animal { public: void purr()  { cout << "Purring!\n"; } };
+
+// int main() {
+    
+//     Animal* a = new Dog();
+
+//     Dog* dog = dynamic_cast<Dog*>(a);
+//     if (!dog) cout << "Not a dog!\n";
+//     if (dog) dog->fetch();             
+
+//     Cat* cat = dynamic_cast<Cat*>(a); 
+//     if (!cat) cout << "Not a cat!\n";  
+
+//     delete a;
+// }
+
+#include <iostream>
+#include <cstdlib>
 
 int main() {
+    const char* texte = "  3.14159et le reste";
+    char* fin;
     
-    Animal* a = new Dog();
-
-    Dog* dog = dynamic_cast<Dog*>(a);
-    if (!dog) cout << "Not a dog!\n";
-    if (dog) dog->fetch();             
-
-    Cat* cat = dynamic_cast<Cat*>(a); 
-    if (!cat) cout << "Not a cat!\n";  
-
-    delete a;
+    double p = std::strtod(texte, &fin);
+    
+    std::cout << "Valeur : " << p << "\n";         
+    std::cout << "Reste : " << fin << "\n";         
+    
+    return 0;
 }

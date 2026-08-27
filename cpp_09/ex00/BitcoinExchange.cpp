@@ -26,7 +26,7 @@ BitcoinExchange::~BitcoinExchange()
 }
 
 
-void BitcoinExchange::loadDataSet(std::string &path)
+void BitcoinExchange::loadDataSet(const std::string &path)
 {
     std::ifstream file(path.c_str());
     if (!file.is_open())
@@ -48,7 +48,7 @@ bool BitcoinExchange::check_valid_date(std::string &date)
 {
     if (date.size() != 10 || date[4] != '-' || date[7] != '-')
         return false;
-    for (int i = 0; date.size() > i; ++i)
+    for (size_t i = 0; date.size() > i; ++i)
         if(i != 4 && i != 7 && !isdigit(date[i]))
             return false;
 
@@ -99,11 +99,36 @@ void BitcoinExchange::procces_line(std::string &line)
         std::cerr << "ERROR : INVALID DATE " << std::endl;
         return ;
     }
-    //  what the fuck ???
-    if ()
+
+    char *end;
+    double value = std::strtod(bitcoin.c_str(), &end);
+    if (*end != '\0' || bitcoin.empty())
     {
-        
+        std::cout << "Error: bad input => " << line << std::endl;
+        return;
     }
+    if(value < 0 )
+    {
+        std::cout << "Error: not a positive number." << std::endl;
+        return;
+    }
+    if (value > 1000)
+    {
+        std::cout << "Error: too large a number." << std::endl;
+        return;
+    }
+
+    std::map<std::string, float>::iterator it = bitcoin_info.lower_bound(date);
+    if (it == bitcoin_info.end() || it->first != date )
+    {
+        if (it  == bitcoin_info.begin())
+        {
+            std::cout << "bad input " << std::endl;
+            return ;
+        }
+        it--;
+    }
+    std::cout << date << " => " << bitcoin << " = " << it->second * value << std::endl;
 
 }
 

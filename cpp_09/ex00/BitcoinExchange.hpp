@@ -7,6 +7,7 @@
 #include <fstream>
 #include <map>
 #include <string>
+#include <algorithm>
 
 
 class BitcoinExchange{
@@ -18,7 +19,7 @@ class BitcoinExchange{
         BitcoinExchange(const BitcoinExchange &other);
         BitcoinExchange& operator=(const BitcoinExchange &other);
         ~BitcoinExchange();
-        void loadDataSet(std::string &path);
+        void loadDataSet(const std::string &path);
         bool check_valid_date(std::string &data);
         void procces_line(std::string &line);
 
