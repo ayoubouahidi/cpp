@@ -53,26 +53,26 @@ void PmergeMe::check_args(char **args)
 
 }
 
-std::vector<int> PmergeMe::FordJohnson()
+std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
 {
     bool hasStrgl = false;
     int Strgl;
     std::vector<std::pair<int, int>> pairs;
 
 
-    for(size_t i = 0; i < this->vect.size(); i+=2)
+    for(size_t i = 0; i < input.size(); i+=2)
     {
-        int a = this->vect[i];
-        int b = this->vect[i + 1];
+        int a = input[i];
+        int b = input[i + 1];
         if (a < b)
             pairs.push_back(std::make_pair(b , a));
         else
             pairs.push_back(std::make_pair(a , b));
     }
-    if (this->vect.size() %2 != 0)
+    if (input.size() %2 != 0)
     {
         hasStrgl = true;
-        Strgl = this->vect[this->vect.size() - 1];
+        Strgl = input[input.size() - 1];
     }
 
 
@@ -80,13 +80,30 @@ std::vector<int> PmergeMe::FordJohnson()
     std::vector<int> pend;
 
     // main_pend(&main, &pend);
-    for(int i = 0; i < pairs.size(); i++)
+    for(int i = 0; i + 1 < pairs.size(); i++)
     {
         main.push_back(pairs[i].first);
-        pend.push_back(pairs[i].second);
+        // pend.push_back(pairs[i].second);
     }
 
-    
+    std::vector<int> sortedMain = FordJohnson(main);
+
+
+    std::vector<std::pair<int, int> > sortedPairs;
+    std::vector<bool> used(pairs.size(), false);
+    for (size_t j = 0; j < sortedMain.size(); j++)
+    {
+        for (size_t k = 0; k < pairs.size(); k++)
+        {
+            if (!used[k] && pairs[k].first == sortedMain[j])
+            {
+                sortedPairs.push_back(pairs[k]);
+                used[k] = true;
+                break;
+            }
+        }
+    }
+
 
     if(main.size() == 2)
     {

@@ -26,7 +26,7 @@ class PmergeMe
         ~PmergeMe();
 
         void check_args(char **args);
-        std::vector<int> FordJohnson();
+        std::vector<int> FordJohnson(std::vector<int> input);
         
         // void create_pairs();
 
