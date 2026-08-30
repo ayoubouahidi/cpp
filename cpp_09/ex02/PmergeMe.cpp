@@ -53,6 +53,20 @@ void PmergeMe::check_args(char **args)
 
 }
 
+std::vector<int> PmergeMe::jacobsthalSequence(int n)
+{
+    std::vector<int> jac;
+    jac.push_back(0);
+    jac.push_back(1);
+    while (jac.back() < n)
+    {
+        int next = jac[jac.size() - 1] + 2 * jac[jac.size() - 2];
+        jac.push_back(next);
+    }
+    return jac;
+}
+
+
 std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
 {
     bool hasStrgl = false;
@@ -103,6 +117,23 @@ std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
             }
         }
     }
+
+
+    std::vector<int> main_1;
+    std::vector<int> pend;
+
+    if (!sortedPairs.empty())
+        main_1.push_back(sortedPairs[0].second); // a1
+
+    for (size_t j = 0; j < sortedPairs.size(); j++)
+        main_1.push_back(sortedPairs[j].first);  // tous les b triés
+
+    for (size_t j = 1; j < sortedPairs.size(); j++)
+        pend.push_back(sortedPairs[j].second); // a2, a3, ...
+    if (hasStrgl)
+        pend.push_back(Strgl);
+
+
 
 
     if(main.size() == 2)
