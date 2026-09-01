@@ -12,12 +12,15 @@
 #include <cstdlib>   
 #include <stdexcept> 
 
+
+
 class PmergeMe
 {
     private:
         // std::vector<int> vect;
         // std::deque<int> deque;
     public:
+
         std::vector<int> vect;
         std::deque<int> deque;
         PmergeMe();
@@ -28,10 +31,13 @@ class PmergeMe
         void check_args(char **args);
         std::vector<int> FordJohnson(std::vector<int> input);
 
+
+        std::deque<int> FordJohnson(std::deque<int> input);
+
         // int binarySearch(int a[], int item, int low, int high);
         // void insertionSort(int a[], int n);
 
-        std::vector<int> jacobsthalSequence(int n);
+        // std::vector<int> jacobsthalSequence(int n);
         // void create_pairs();
 
 };
