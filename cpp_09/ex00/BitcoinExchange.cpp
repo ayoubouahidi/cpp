@@ -53,9 +53,9 @@ bool BitcoinExchange::check_valid_date(std::string &date)
             return false;
 
     int year  = std::atoi(date.substr(0, 4).c_str());
-    int month = std::atoi(date.substr(5, 2).c_str());
     int day   = std::atoi(date.substr(8, 2).c_str());
-
+    int month = std::atoi(date.substr(5, 2).c_str());
+    
     if (month < 1 || month > 12 || day < 1)
         return false;
 
@@ -88,7 +88,7 @@ void BitcoinExchange::procces_line(std::string &line)
     size_t sep = line.find('|');
     if (sep == std::string::npos)
     {
-        std::cout << "Error: bad input => " << line << std::endl;
+        std::cerr << "Error: bad input => " << line << std::endl;
         return;
     }
     std::string date = trim(line.substr(0, sep));
@@ -104,17 +104,17 @@ void BitcoinExchange::procces_line(std::string &line)
     double value = std::strtod(bitcoin.c_str(), &end);
     if (*end != '\0' || bitcoin.empty())
     {
-        std::cout << "Error: bad input => " << line << std::endl;
+        std::cerr << "Error: bad input => " << line << std::endl;
         return;
     }
     if(value < 0 )
     {
-        std::cout << "Error: not a positive number." << std::endl;
+        std::cerr << "Error: not a positive number." << std::endl;
         return;
     }
     if (value > 1000)
     {
-        std::cout << "Error: too large a number." << std::endl;
+        std::cerr << "Error: too large a number." << std::endl;
         return;
     }
 
@@ -123,7 +123,7 @@ void BitcoinExchange::procces_line(std::string &line)
     {
         if (it  == bitcoin_info.begin())
         {
-            std::cout << "bad input " << std::endl;
+            std::cerr << "doesn't exist " << std::endl;
             return ;
         }
         it--;

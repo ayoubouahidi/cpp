@@ -102,15 +102,11 @@ std::vector<size_t> buildInsertionOrder(size_t pendSize)
             if (start >= 1 && start <= pendSize)
                 order.push_back(start - 1);  
             start--;
+            // std::cout <<"start = " << start << " ," ;
         }
         if (start >= 1 && start <= pendSize)
             order.push_back(start - 1);      
     }
-    // std::cout << "order :" ;
-    // for (size_t i =0; i < order.size();i++)
-    //     std::cout << order[i];
-    // std::cout << std::endl;
-
     return order;
 }
 
@@ -144,11 +140,10 @@ std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
     std::vector<int> main;
     std::vector<int> pend;
     
-    // main_pend(&main, &pend);
+
     for(size_t i = 0; i < pairs.size(); i++)
     {
         main.push_back(pairs[i].first);
-        // pend.push_back(pairs[i].second);
     }
 
     std::vector<int> sortedMain = FordJohnson(main);
@@ -179,17 +174,16 @@ std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
     for (size_t j = 0; j < sortedPairs.size(); j++)
         main_1.push_back(sortedPairs[j].first); 
 
-    
-
     std::vector<size_t> bIndex(sortedPairs.size());
     for (size_t j = 0; j < sortedPairs.size(); j++)
-        bIndex[j] = j + 1;   // main_1[j+1] = sortedPairs[j].first
+        bIndex[j] = j + 1;   
 
     for (size_t j = 1; j < sortedPairs.size(); j++)
         pend.push_back(sortedPairs[j].second);
 
     if (hasStrgl)
         pend.push_back(Strgl);
+    
 
     std::vector<size_t> insertionOrder = buildInsertionOrder(pend.size());
 
@@ -202,8 +196,7 @@ std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
         if (hasStrgl && pendIdx == pend.size() - 1)
             bound = main_1.size();
         else
-            bound = bIndex[pendIdx + 1]; // O(1) au lieu de O(n) !
-
+            bound = bIndex[pendIdx + 1];
         size_t insertedPos = boundedBinaryInsert(main_1, value, bound);
 
         for (size_t j = 0; j < bIndex.size(); j++)
@@ -211,11 +204,11 @@ std::vector<int> PmergeMe::FordJohnson(std::vector<int> input)
             if (bIndex[j] >= insertedPos)
                 bIndex[j]++;
         }
+
+
     }
 
     return main_1;
-
-
 }
 
 
